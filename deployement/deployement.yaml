@@ -1,0 +1,25 @@
+---
+apiVersion: apps/v1
+kind: Deployment  
+metadata:
+  name: fbapp-deploy
+  labels:
+    app: fbapp
+    env: production
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: fbapp
+  template:
+    metadata:
+      labels:
+        app: fbapp  
+        version: v1_Ac
+    spec:
+      containers:
+      - name: fbapp
+        image: nagakrishna123/nagakrishna_devabathini:httpdfacebook
+        ports:
+        - containerPort: 80
+      
